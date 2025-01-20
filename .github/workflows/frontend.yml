@@ -25,4 +25,12 @@ jobs:
           echo "${{ secrets.CLIENT_ENV }}" > .env
           pwd
           ls -al
+      # 빌드를 위한 조건 -> nodejs 설치
+      - name: node.js 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+        run: |
+          npm ci
+          npm install
 
