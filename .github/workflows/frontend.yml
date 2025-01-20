@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # 체크아웃 -> github의 저장소로부터 소스 체크아웃
-      - name: Checkout respository resource
-        user: actions/checkout@v2
+      - name: Checkout repository resource
+        uses: actions/checkout@v2
 
-      # 환경변수 동적 생성 -> .env(ec2 정보 세팅), 기존코드 수정(보안)
+      # 환경변수 동적 생성 -> .env 파일 생성(ec2 정보 세팅), 기존코드 수정(보안)
       - name: .env 환경 변수 동적 생성
         run: |
           echo "${{ secrets.CLIENT_ENV }}" > .env
