@@ -71,4 +71,4 @@ jobs:
             sudo rm -rf /var/www/html/*
             sudo mv /home/ubuntu/client/build/* /var/www/html/ 
             sudo systemctl restart nginx
-            rm -rf client/
+            rm -rf /home/ubuntu/client

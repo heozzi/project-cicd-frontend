@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL
 /**
  * 마이페이지
  * @returns 
