@@ -36,8 +36,6 @@ jobs:
           npm test
 
       # npm install 라이브러리 설치
-      - name: npm install 설치 진행
-        run: npm install
       # 빌드
       # 빌드의 결과물을 ec2 업로드
       # 뒷정리 (업로드 결과 -> nginx의  root로 이동(설정), 디렉토리 정리)
