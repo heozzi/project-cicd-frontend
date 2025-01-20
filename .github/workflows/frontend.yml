@@ -31,8 +31,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18
+
+      - name : node.js 테스트
         run: |
           npm ci
           npm install
-          npm start
-
