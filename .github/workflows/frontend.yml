@@ -26,16 +26,3 @@ jobs:
           pwd
           ls -al
 
-      # 빌드를 위한 조건 -> nodejs 설치
-      - name: node.js 설치
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18
-        run: | 
-          npm ci
-          npm test
-
-      # npm install 라이브러리 설치
-      # 빌드
-      # 빌드의 결과물을 ec2 업로드
-      # 뒷정리 (업로드 결과 -> nginx의  root로 이동(설정), 디렉토리 정리)
