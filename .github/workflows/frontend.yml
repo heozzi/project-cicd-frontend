@@ -27,12 +27,15 @@ jobs:
           ls -al
 
       # 빌드를 위한 조건 -> nodejs 설치
+      # npm install 라이브러리 설치
       - name: node.js 설치
         uses: actions/setup-node@v2
         with:
           node-version: 18
 
-      - name : node.js 테스트
+      # 빌드
+      - name: node.js 테스트
         run: |
           npm ci
-          npm install
+          npm run build
+          ls -al
