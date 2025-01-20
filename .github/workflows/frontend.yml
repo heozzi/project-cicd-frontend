@@ -27,15 +27,30 @@ jobs:
           ls -al
 
       # 빌드를 위한 조건 -> nodejs 설치
-      # npm install 라이브러리 설치
       - name: node.js 설치
         uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: 22
+
+      # npm install 라이브러리 설치
+      - name: node.js 테스트
+        run:  npm install
+      
 
       # 빌드
-      - name: node.js 테스트
-        run: |
-          npm ci
-          npm run build
-          ls -al
+      # run: npm run build
+      - name: 빌드
+        run: npm run build
+
+      # 빌드의 결과물을 ec2 업로드
+      # 대상 : ./build/*
+      # 타겟 : /home/ubuntu/client
+
+      - name: 빌드의 결과물을 ec2에 업로드
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          source: ./build/*
+          target: /home/ubuntu/client
