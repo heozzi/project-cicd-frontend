@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
+axios.defaults.baseURL = process.env.REACT_APP_API_URL
 /**
  * 마이페이지
  * @returns 
@@ -16,7 +18,7 @@ function MyInfo() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/user', {
+        const response = await axios.get('/user', {
           withCredentials: true, // 자격 증명(쿠키, 인증 헤더 등)을 포함하여 HTTP 요청
         });
         if (response.status === 200) {
